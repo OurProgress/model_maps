@@ -1,0 +1,195 @@
+<style>
+#chartdiv {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/maps.js"></script>
+<script src="https://www.amcharts.com/lib/4/geodata/region/usa/moHigh.js"></script>
+
+<!-- Chart code -->
+<script>
+am4core.ready(function() {
+// Create map instance
+var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+// Set map definition
+chart.geodata = am4geodata_region_usa_moHigh;
+
+// Set projection
+chart.projection = new am4maps.projections.AlbersUsa();
+
+chart.maxZoomLevel = 1;
+chart.seriesContainer.draggable = false;
+chart.seriesContainer.resizable = false;
+chart.seriesContainer.events.disableType("doublehit");
+chart.chartContainer.background.events.disableType("doublehit");
+configField = "config"
+
+// Create map polygon series
+var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+// Make map load polygon (like country names) data from GeoJSON
+polygonSeries.useGeodata = true;
+
+polygonSeries.data =[
+  
+{ "id": "29001", "name": "	Adair 	", "leader": "	Trump:	", "leaderv": "	5,905	", "leaderp": "	60.65%	", "trailer": "	Biden:	", "trailerv": "	3,831	", "trailerp": "	39.35%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29003", "name": "	Andrew 	", "leader": "	Trump:	", "leaderv": "	6,109	", "leaderp": "	72.45%	", "trailer": "	Biden:	", "trailerv": "	2,323	", "trailerp": "	27.55%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29005", "name": "	Atchison 	", "leader": "	Trump:	", "leaderv": "	2,008	", "leaderp": "	75.83%	", "trailer": "	Biden:	", "trailerv": "	640	", "trailerp": "	24.17%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29007", "name": "	Audrain 	", "leader": "	Trump:	", "leaderv": "	6,719	", "leaderp": "	69.02%	", "trailer": "	Biden:	", "trailerv": "	3,016	", "trailerp": "	30.98%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29009", "name": "	Barry 	", "leader": "	Trump:	", "leaderv": "	10,694	", "leaderp": "	77.24%	", "trailer": "	Biden:	", "trailerv": "	3,150	", "trailerp": "	22.76%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29011", "name": "	Barton 	", "leader": "	Trump:	", "leaderv": "	4,780	", "leaderp": "	82.77%	", "trailer": "	Biden:	", "trailerv": "	995	", "trailerp": "	17.23%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29013", "name": "	Bates 	", "leader": "	Trump:	", "leaderv": "	5,677	", "leaderp": "	73.47%	", "trailer": "	Biden:	", "trailerv": "	2,050	", "trailerp": "	26.53%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29015", "name": "	Benton 	", "leader": "	Trump:	", "leaderv": "	6,687	", "leaderp": "	73.27%	", "trailer": "	Biden:	", "trailerv": "	2,439	", "trailerp": "	26.73%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29017", "name": "	Bollinger 	", "leader": "	Trump:	", "leaderv": "	4,585	", "leaderp": "	83.01%	", "trailer": "	Biden:	", "trailerv": "	939	", "trailerp": "	16.99%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29019", "name": "	Boone 	", "leader": "	Biden:	", "leaderv": "	45,073	", "leaderp": "	56.28%	", "trailer": "	Trump:	", "trailerv": "	35,008	", "trailerp": "	43.72%	", "fill": am4core.color("#353BF3")},
+{ "id": "29021", "name": "	Buchanan 	", "leader": "	Trump:	", "leaderv": "	20,096	", "leaderp": "	59.09%	", "trailer": "	Biden:	", "trailerv": "	13,911	", "trailerp": "	40.91%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29023", "name": "	Butler 	", "leader": "	Trump:	", "leaderv": "	13,005	", "leaderp": "	77.67%	", "trailer": "	Biden:	", "trailerv": "	3,739	", "trailerp": "	22.33%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29025", "name": "	Caldwell 	", "leader": "	Trump:	", "leaderv": "	3,063	", "leaderp": "	74.36%	", "trailer": "	Biden:	", "trailerv": "	1,056	", "trailerp": "	25.64%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29027", "name": "	Callaway 	", "leader": "	Trump:	", "leaderv": "	12,453	", "leaderp": "	68.00%	", "trailer": "	Biden:	", "trailerv": "	5,860	", "trailerp": "	32.00%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29029", "name": "	Camden 	", "leader": "	Trump:	", "leaderv": "	16,092	", "leaderp": "	73.97%	", "trailer": "	Biden:	", "trailerv": "	5,664	", "trailerp": "	26.03%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29031", "name": "	Cape Girardeau 	", "leader": "	Trump:	", "leaderv": "	26,259	", "leaderp": "	73.23%	", "trailer": "	Biden:	", "trailerv": "	9,597	", "trailerp": "	26.77%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29033", "name": "	Carroll 	", "leader": "	Trump:	", "leaderv": "	3,345	", "leaderp": "	78.19%	", "trailer": "	Biden:	", "trailerv": "	933	", "trailerp": "	21.81%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29035", "name": "	Carter 	", "leader": "	Trump:	", "leaderv": "	2,210	", "leaderp": "	79.15%	", "trailer": "	Biden:	", "trailerv": "	582	", "trailerp": "	20.85%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29037", "name": "	Cass 	", "leader": "	Trump:	", "leaderv": "	32,092	", "leaderp": "	65.80%	", "trailer": "	Biden:	", "trailerv": "	16,677	", "trailerp": "	34.20%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29039", "name": "	Cedar 	", "leader": "	Trump:	", "leaderv": "	4,808	", "leaderp": "	79.33%	", "trailer": "	Biden:	", "trailerv": "	1,253	", "trailerp": "	20.67%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29041", "name": "	Chariton 	", "leader": "	Trump:	", "leaderv": "	2,769	", "leaderp": "	71.65%	", "trailer": "	Biden:	", "trailerv": "	1,095	", "trailerp": "	28.35%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29043", "name": "	Christian 	", "leader": "	Trump:	", "leaderv": "	29,348	", "leaderp": "	73.21%	", "trailer": "	Biden:	", "trailerv": "	10,739	", "trailerp": "	26.79%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29045", "name": "	Clark 	", "leader": "	Trump:	", "leaderv": "	2,218	", "leaderp": "	68.20%	", "trailer": "	Biden:	", "trailerv": "	1,034	", "trailerp": "	31.80%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29047", "name": "	Clay 	", "leader": "	Trump:	", "leaderv": "	56,885	", "leaderp": "	54.08%	", "trailer": "	Biden:	", "trailerv": "	48,294	", "trailerp": "	45.92%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29049", "name": "	Clinton 	", "leader": "	Trump:	", "leaderv": "	6,544	", "leaderp": "	67.41%	", "trailer": "	Biden:	", "trailerv": "	3,163	", "trailerp": "	32.59%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29051", "name": "	Cole 	", "leader": "	Trump:	", "leaderv": "	24,574	", "leaderp": "	68.14%	", "trailer": "	Biden:	", "trailerv": "	11,492	", "trailerp": "	31.86%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29053", "name": "	Cooper 	", "leader": "	Trump:	", "leaderv": "	5,381	", "leaderp": "	71.15%	", "trailer": "	Biden:	", "trailerv": "	2,181	", "trailerp": "	28.85%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29055", "name": "	Crawford 	", "leader": "	Trump:	", "leaderv": "	7,131	", "leaderp": "	74.65%	", "trailer": "	Biden:	", "trailerv": "	2,421	", "trailerp": "	25.35%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29057", "name": "	Dade 	", "leader": "	Trump:	", "leaderv": "	3,089	", "leaderp": "	79.92%	", "trailer": "	Biden:	", "trailerv": "	776	", "trailerp": "	20.08%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29059", "name": "	Dallas 	", "leader": "	Trump:	", "leaderv": "	5,597	", "leaderp": "	77.09%	", "trailer": "	Biden:	", "trailerv": "	1,663	", "trailerp": "	22.91%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29061", "name": "	Daviess 	", "leader": "	Trump:	", "leaderv": "	2,610	", "leaderp": "	74.11%	", "trailer": "	Biden:	", "trailerv": "	912	", "trailerp": "	25.89%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29063", "name": "	DeKalb 	", "leader": "	Trump:	", "leaderv": "	3,380	", "leaderp": "	77.27%	", "trailer": "	Biden:	", "trailerv": "	994	", "trailerp": "	22.73%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29065", "name": "	Dent 	", "leader": "	Trump:	", "leaderv": "	5,363	", "leaderp": "	81.01%	", "trailer": "	Biden:	", "trailerv": "	1,257	", "trailerp": "	18.99%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29067", "name": "	Douglas 	", "leader": "	Trump:	", "leaderv": "	5,210	", "leaderp": "	79.82%	", "trailer": "	Biden:	", "trailerv": "	1,318	", "trailerp": "	20.18%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29069", "name": "	Dunklin 	", "leader": "	Trump:	", "leaderv": "	7,485	", "leaderp": "	71.14%	", "trailer": "	Biden:	", "trailerv": "	3,036	", "trailerp": "	28.86%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29071", "name": "	Franklin 	", "leader": "	Trump:	", "leaderv": "	32,654	", "leaderp": "	67.86%	", "trailer": "	Biden:	", "trailerv": "	15,469	", "trailerp": "	32.14%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29073", "name": "	Gasconade 	", "leader": "	Trump:	", "leaderv": "	5,414	", "leaderp": "	75.19%	", "trailer": "	Biden:	", "trailerv": "	1,786	", "trailerp": "	24.81%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29075", "name": "	Gentry 	", "leader": "	Trump:	", "leaderv": "	2,200	", "leaderp": "	74.38%	", "trailer": "	Biden:	", "trailerv": "	758	", "trailerp": "	25.62%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29077", "name": "	Greene 	", "leader": "	Trump:	", "leaderv": "	77,513	", "leaderp": "	62.92%	", "trailer": "	Biden:	", "trailerv": "	45,678	", "trailerp": "	37.08%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29079", "name": "	Grundy 	", "leader": "	Trump:	", "leaderv": "	3,319	", "leaderp": "	77.23%	", "trailer": "	Biden:	", "trailerv": "	979	", "trailerp": "	22.77%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29081", "name": "	Harrison 	", "leader": "	Trump:	", "leaderv": "	2,852	", "leaderp": "	78.90%	", "trailer": "	Biden:	", "trailerv": "	763	", "trailerp": "	21.10%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29083", "name": "	Henry 	", "leader": "	Trump:	", "leaderv": "	6,796	", "leaderp": "	69.24%	", "trailer": "	Biden:	", "trailerv": "	3,019	", "trailerp": "	30.76%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29085", "name": "	Hickory 	", "leader": "	Trump:	", "leaderv": "	3,309	", "leaderp": "	71.09%	", "trailer": "	Biden:	", "trailerv": "	1,346	", "trailerp": "	28.91%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29087", "name": "	Holt 	", "leader": "	Trump:	", "leaderv": "	1,860	", "leaderp": "	80.84%	", "trailer": "	Biden:	", "trailerv": "	441	", "trailerp": "	19.16%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29089", "name": "	Howard 	", "leader": "	Trump:	", "leaderv": "	3,191	", "leaderp": "	68.24%	", "trailer": "	Biden:	", "trailerv": "	1,485	", "trailerp": "	31.76%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29091", "name": "	Howell 	", "leader": "	Trump:	", "leaderv": "	12,812	", "leaderp": "	77.67%	", "trailer": "	Biden:	", "trailerv": "	3,683	", "trailerp": "	22.33%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29093", "name": "	Iron 	", "leader": "	Trump:	", "leaderv": "	2,869	", "leaderp": "	69.29%	", "trailer": "	Biden:	", "trailerv": "	1,272	", "trailerp": "	30.71%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29095", "name": "	Jackson 	", "leader": "	Biden:	", "leaderv": "	188,297	", "leaderp": "	64.45%	", "trailer": "	Trump:	", "trailerv": "	103,867	", "trailerp": "	35.55%	", "fill": am4core.color("#353BF3")},
+{ "id": "29097", "name": "	Jasper 	", "leader": "	Trump:	", "leaderv": "	33,358	", "leaderp": "	72.08%	", "trailer": "	Biden:	", "trailerv": "	12,923	", "trailerp": "	27.92%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29099", "name": "	Jefferson 	", "leader": "	Trump:	", "leaderv": "	65,121	", "leaderp": "	62.25%	", "trailer": "	Biden:	", "trailerv": "	39,494	", "trailerp": "	37.75%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29101", "name": "	Johnson 	", "leader": "	Trump:	", "leaderv": "	13,404	", "leaderp": "	66.18%	", "trailer": "	Biden:	", "trailerv": "	6,851	", "trailerp": "	33.82%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29103", "name": "	Knox 	", "leader": "	Trump:	", "leaderv": "	1,346	", "leaderp": "	71.92%	", "trailer": "	Biden:	", "trailerv": "	526	", "trailerp": "	28.08%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29105", "name": "	Laclede 	", "leader": "	Trump:	", "leaderv": "	11,985	", "leaderp": "	78.06%	", "trailer": "	Biden:	", "trailerv": "	3,369	", "trailerp": "	21.94%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29107", "name": "	Lafayette 	", "leader": "	Trump:	", "leaderv": "	10,443	", "leaderp": "	68.05%	", "trailer": "	Biden:	", "trailerv": "	4,902	", "trailerp": "	31.95%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29109", "name": "	Lawrence 	", "leader": "	Trump:	", "leaderv": "	12,322	", "leaderp": "	77.92%	", "trailer": "	Biden:	", "trailerv": "	3,492	", "trailerp": "	22.08%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29111", "name": "	Lewis 	", "leader": "	Trump:	", "leaderv": "	3,124	", "leaderp": "	72.28%	", "trailer": "	Biden:	", "trailerv": "	1,198	", "trailerp": "	27.72%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29113", "name": "	Lincoln 	", "leader": "	Trump:	", "leaderv": "	16,399	", "leaderp": "	68.60%	", "trailer": "	Biden:	", "trailerv": "	7,506	", "trailerp": "	31.40%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29115", "name": "	Linn 	", "leader": "	Trump:	", "leaderv": "	3,842	", "leaderp": "	70.49%	", "trailer": "	Biden:	", "trailerv": "	1,608	", "trailerp": "	29.51%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29117", "name": "	Livingston 	", "leader": "	Trump:	", "leaderv": "	4,591	", "leaderp": "	74.64%	", "trailer": "	Biden:	", "trailerv": "	1,560	", "trailerp": "	25.36%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29119", "name": "	Macon 	", "leader": "	Trump:	", "leaderv": "	5,293	", "leaderp": "	73.61%	", "trailer": "	Biden:	", "trailerv": "	1,898	", "trailerp": "	26.39%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29121", "name": "	Madison 	", "leader": "	Trump:	", "leaderv": "	3,813	", "leaderp": "	74.97%	", "trailer": "	Biden:	", "trailerv": "	1,273	", "trailerp": "	25.03%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29123", "name": "	Maries 	", "leader": "	Trump:	", "leaderv": "	3,430	", "leaderp": "	76.97%	", "trailer": "	Biden:	", "trailerv": "	1,026	", "trailerp": "	23.03%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29125", "name": "	Marion 	", "leader": "	Trump:	", "leaderv": "	8,731	", "leaderp": "	71.13%	", "trailer": "	Biden:	", "trailerv": "	3,544	", "trailerp": "	28.87%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29127", "name": "	McDonald 	", "leader": "	Trump:	", "leaderv": "	6,300	", "leaderp": "	79.74%	", "trailer": "	Biden:	", "trailerv": "	1,601	", "trailerp": "	20.26%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29129", "name": "	Mercer 	", "leader": "	Trump:	", "leaderv": "	1,410	", "leaderp": "	83.48%	", "trailer": "	Biden:	", "trailerv": "	279	", "trailerp": "	16.52%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29131", "name": "	Miller 	", "leader": "	Trump:	", "leaderv": "	8,739	", "leaderp": "	80.15%	", "trailer": "	Biden:	", "trailerv": "	2,164	", "trailerp": "	19.85%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29133", "name": "	Mississippi 	", "leader": "	Trump:	", "leaderv": "	3,401	", "leaderp": "	67.44%	", "trailer": "	Biden:	", "trailerv": "	1,642	", "trailerp": "	32.56%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29135", "name": "	Moniteau 	", "leader": "	Trump:	", "leaderv": "	5,135	", "leaderp": "	78.48%	", "trailer": "	Biden:	", "trailerv": "	1,408	", "trailerp": "	21.52%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29137", "name": "	Monroe 	", "leader": "	Trump:	", "leaderv": "	2,963	", "leaderp": "	72.86%	", "trailer": "	Biden:	", "trailerv": "	1,104	", "trailerp": "	27.14%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29139", "name": "	Montgomery 	", "leader": "	Trump:	", "leaderv": "	3,917	", "leaderp": "	73.60%	", "trailer": "	Biden:	", "trailerv": "	1,405	", "trailerp": "	26.40%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29141", "name": "	Morgan 	", "leader": "	Trump:	", "leaderv": "	6,288	", "leaderp": "	73.21%	", "trailer": "	Biden:	", "trailerv": "	2,301	", "trailerp": "	26.79%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29143", "name": "	New Madrid 	", "leader": "	Trump:	", "leaderv": "	4,945	", "leaderp": "	67.89%	", "trailer": "	Biden:	", "trailerv": "	2,338	", "trailerp": "	32.11%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29145", "name": "	Newton 	", "leader": "	Trump:	", "leaderv": "	19,462	", "leaderp": "	75.64%	", "trailer": "	Biden:	", "trailerv": "	6,267	", "trailerp": "	24.36%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29147", "name": "	Nodaway 	", "leader": "	Trump:	", "leaderv": "	6,120	", "leaderp": "	68.42%	", "trailer": "	Biden:	", "trailerv": "	2,825	", "trailerp": "	31.58%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29149", "name": "	Oregon 	", "leader": "	Trump:	", "leaderv": "	3,412	", "leaderp": "	75.29%	", "trailer": "	Biden:	", "trailerv": "	1,120	", "trailerp": "	24.71%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29151", "name": "	Osage 	", "leader": "	Trump:	", "leaderv": "	5,682	", "leaderp": "	82.37%	", "trailer": "	Biden:	", "trailerv": "	1,217	", "trailerp": "	17.63%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29153", "name": "	Ozark 	", "leader": "	Trump:	", "leaderv": "	3,455	", "leaderp": "	78.06%	", "trailer": "	Biden:	", "trailerv": "	971	", "trailerp": "	21.94%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29155", "name": "	Pemiscot 	", "leader": "	Trump:	", "leaderv": "	3,843	", "leaderp": "	62.76%	", "trailer": "	Biden:	", "trailerv": "	2,280	", "trailerp": "	37.24%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29157", "name": "	Perry 	", "leader": "	Trump:	", "leaderv": "	6,338	", "leaderp": "	77.64%	", "trailer": "	Biden:	", "trailerv": "	1,825	", "trailerp": "	22.36%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29159", "name": "	Pettis 	", "leader": "	Trump:	", "leaderv": "	11,905	", "leaderp": "	69.76%	", "trailer": "	Biden:	", "trailerv": "	5,161	", "trailerp": "	30.24%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29161", "name": "	Phelps 	", "leader": "	Trump:	", "leaderv": "	12,440	", "leaderp": "	70.07%	", "trailer": "	Biden:	", "trailerv": "	5,313	", "trailerp": "	29.93%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29163", "name": "	Pike 	", "leader": "	Trump:	", "leaderv": "	5,044	", "leaderp": "	69.99%	", "trailer": "	Biden:	", "trailerv": "	2,163	", "trailerp": "	30.01%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29165", "name": "	Platte 	", "leader": "	Trump:	", "leaderv": "	24,705	", "leaderp": "	51.29%	", "trailer": "	Biden:	", "trailerv": "	23,466	", "trailerp": "	48.71%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29167", "name": "	Polk 	", "leader": "	Trump:	", "leaderv": "	9,892	", "leaderp": "	76.33%	", "trailer": "	Biden:	", "trailerv": "	3,068	", "trailerp": "	23.67%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29169", "name": "	Pulaski 	", "leader": "	Trump:	", "leaderv": "	9,617	", "leaderp": "	72.77%	", "trailer": "	Biden:	", "trailerv": "	3,599	", "trailerp": "	27.23%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29171", "name": "	Putnam 	", "leader": "	Trump:	", "leaderv": "	1,849	", "leaderp": "	80.06%	", "trailer": "	Biden:	", "trailerv": "	461	", "trailerp": "	19.94%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29173", "name": "	Ralls 	", "leader": "	Trump:	", "leaderv": "	3,725	", "leaderp": "	72.50%	", "trailer": "	Biden:	", "trailerv": "	1,413	", "trailerp": "	27.50%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29175", "name": "	Randolph 	", "leader": "	Trump:	", "leaderv": "	7,245	", "leaderp": "	73.39%	", "trailer": "	Biden:	", "trailerv": "	2,627	", "trailerp": "	26.61%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29177", "name": "	Ray 	", "leader": "	Trump:	", "leaderv": "	6,511	", "leaderp": "	63.65%	", "trailer": "	Biden:	", "trailerv": "	3,718	", "trailerp": "	36.35%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29179", "name": "	Reynolds 	", "leader": "	Trump:	", "leaderv": "	2,249	", "leaderp": "	73.19%	", "trailer": "	Biden:	", "trailerv": "	824	", "trailerp": "	26.81%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29181", "name": "	Ripley 	", "leader": "	Trump:	", "leaderv": "	4,265	", "leaderp": "	79.64%	", "trailer": "	Biden:	", "trailerv": "	1,090	", "trailerp": "	20.36%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29195", "name": "	Saline 	", "leader": "	Trump:	", "leaderv": "	5,689	", "leaderp": "	63.15%	", "trailer": "	Biden:	", "trailerv": "	3,320	", "trailerp": "	36.85%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29197", "name": "	Schuyler 	", "leader": "	Trump:	", "leaderv": "	1,396	", "leaderp": "	73.17%	", "trailer": "	Biden:	", "trailerv": "	512	", "trailerp": "	26.83%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29199", "name": "	Scotland 	", "leader": "	Trump:	", "leaderv": "	1,433	", "leaderp": "	74.41%	", "trailer": "	Biden:	", "trailerv": "	493	", "trailerp": "	25.59%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29201", "name": "	Scott 	", "leader": "	Trump:	", "leaderv": "	12,457	", "leaderp": "	73.92%	", "trailer": "	Biden:	", "trailerv": "	4,395	", "trailerp": "	26.08%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29203", "name": "	Shannon 	", "leader": "	Trump:	", "leaderv": "	2,734	", "leaderp": "	72.87%	", "trailer": "	Biden:	", "trailerv": "	1,018	", "trailerp": "	27.13%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29205", "name": "	Shelby 	", "leader": "	Trump:	", "leaderv": "	2,413	", "leaderp": "	75.77%	", "trailer": "	Biden:	", "trailerv": "	772	", "trailerp": "	24.23%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29183", "name": "	St. Charles 	", "leader": "	Trump:	", "leaderv": "	115,239	", "leaderp": "	61.41%	", "trailer": "	Biden:	", "trailerv": "	72,421	", "trailerp": "	38.59%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29185", "name": "	St. Clair 	", "leader": "	Trump:	", "leaderv": "	3,342	", "leaderp": "	73.95%	", "trailer": "	Biden:	", "trailerv": "	1,177	", "trailerp": "	26.05%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29187", "name": "	St. Francois 	", "leader": "	Trump:	", "leaderv": "	15,527	", "leaderp": "	65.29%	", "trailer": "	Biden:	", "trailerv": "	8,256	", "trailerp": "	34.71%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29189", "name": "	St. Louis 	", "leader": "	Biden:	", "leaderv": "	333,789	", "leaderp": "	64.64%	", "trailer": "	Trump:	", "trailerv": "	182,580	", "trailerp": "	35.36%	", "fill": am4core.color("#353BF3")},
+{ "id": "29186", "name": "	Ste. Genevieve 	", "leader": "	Trump:	", "leaderv": "	4,833	", "leaderp": "	60.05%	", "trailer": "	Biden:	", "trailerv": "	3,216	", "trailerp": "	39.95%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29207", "name": "	Stoddard 	", "leader": "	Trump:	", "leaderv": "	10,351	", "leaderp": "	80.22%	", "trailer": "	Biden:	", "trailerv": "	2,553	", "trailerp": "	19.78%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29209", "name": "	Stone 	", "leader": "	Trump:	", "leaderv": "	12,527	", "leaderp": "	78.48%	", "trailer": "	Biden:	", "trailerv": "	3,436	", "trailerp": "	21.52%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29211", "name": "	Sullivan 	", "leader": "	Trump:	", "leaderv": "	1,794	", "leaderp": "	71.88%	", "trailer": "	Biden:	", "trailerv": "	702	", "trailerp": "	28.12%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29213", "name": "	Taney 	", "leader": "	Trump:	", "leaderv": "	17,112	", "leaderp": "	77.53%	", "trailer": "	Biden:	", "trailerv": "	4,959	", "trailerp": "	22.47%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29215", "name": "	Texas 	", "leader": "	Trump:	", "leaderv": "	8,297	", "leaderp": "	78.05%	", "trailer": "	Biden:	", "trailerv": "	2,334	", "trailerp": "	21.95%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29217", "name": "	Vernon 	", "leader": "	Trump:	", "leaderv": "	6,277	", "leaderp": "	74.86%	", "trailer": "	Biden:	", "trailerv": "	2,109	", "trailerp": "	25.14%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29219", "name": "	Warren 	", "leader": "	Trump:	", "leaderv": "	10,209	", "leaderp": "	68.91%	", "trailer": "	Biden:	", "trailerv": "	4,606	", "trailerp": "	31.09%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29221", "name": "	Washington 	", "leader": "	Trump:	", "leaderv": "	6,139	", "leaderp": "	69.32%	", "trailer": "	Biden:	", "trailerv": "	2,716	", "trailerp": "	30.68%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29223", "name": "	Wayne 	", "leader": "	Trump:	", "leaderv": "	4,372	", "leaderp": "	76.46%	", "trailer": "	Biden:	", "trailerv": "	1,346	", "trailerp": "	23.54%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29225", "name": "	Webster 	", "leader": "	Trump:	", "leaderv": "	11,859	", "leaderp": "	75.59%	", "trailer": "	Biden:	", "trailerv": "	3,830	", "trailerp": "	24.41%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29227", "name": "	Worth 	", "leader": "	Trump:	", "leaderv": "	760	", "leaderp": "	74.36%	", "trailer": "	Biden:	", "trailerv": "	262	", "trailerp": "	25.64%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29229", "name": "	Wright 	", "leader": "	Trump:	", "leaderv": "	6,418	", "leaderp": "	80.75%	", "trailer": "	Biden:	", "trailerv": "	1,530	", "trailerp": "	19.25%	", "fill": am4core.color("#F05C5C")},
+{ "id": "29510", "name": "	St. Louis City	", "leader": "	Biden:	", "leaderv": "	127,315	", "leaderp": "	86.67%	", "trailer": "	Trump:	", "trailerv": "	19,587	", "trailerp": "	13.33%	", "fill": am4core.color("#353BF3")},
+
+    ];
+
+
+// Configure series
+var polygonTemplate = polygonSeries.mapPolygons.template;
+polygonTemplate.propertyFields.fill = "fill";
+polygonTemplate.tooltipHTML = `<center><strong>{name}</strong></center>
+<hr />
+<u><b>{leader}</b></u> &nbsp;&nbsp; {leaderv} &nbsp;&nbsp; <i>{leaderp}</i> <br><pr>
+<u><b>{trailer}</b></u> &nbsp;&nbsp; {trailerv} &nbsp;&nbsp; <i>{trailerp}</i>
+<hr />`;
+series3.tooltip.pointerOrientation = "vertical";
+
+// Create hover state and set alternative fill color
+var hs = polygonTemplate.states.create("hover");
+hs.properties.border = am4core.color("none");
+
+});
+</script>
+
+<!-- HTML -->
+<div id="chartdiv"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
